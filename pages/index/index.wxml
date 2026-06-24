@@ -1,0 +1,63 @@
+<!-- pages/index/index.wxml - 首页地图 -->
+<view class="page-container">
+  <!-- 地图区域 -->
+  <view class="map-area">
+    <map-canvas
+      id="mapCanvas"
+      spots="{{spots}}"
+      userLatitude="{{userLatitude}}"
+      userLongitude="{{userLongitude}}"
+      currentRoute="{{currentRoute}}"
+      bind:spottap="onSpotTap"
+    />
+
+    <!-- AR入口按钮 -->
+    <view class="ar-entry" bindtap="onARClick">
+      <image class="ar-icon" src="/assets/images/icons/ar-icon.png" mode="aspectFit" />
+      <text class="ar-text">AR识景</text>
+    </view>
+
+    <!-- 位置未授权提示 -->
+    <view class="location-tip" wx:if="{{!locationAuthorized}}">
+      <text>开启位置授权可自动获取景点讲解</text>
+      <text class="location-tip-link" bindtap="requestLocation">去开启</text>
+    </view>
+  </view>
+
+  <!-- 路线选择器 -->
+  <view class="route-bar">
+    <scroll-view class="route-scroll" scroll-x="{{true}}" enhanced show-scrollbar="{{false}}">
+      <view class="route-item {{currentRoute && currentRoute.id === 'love' ? 'active' : ''}}"
+        data-route-id="love" bindtap="onRouteSelect"
+        style="--route-color: #C41E3A;">
+        <text class="route-name">宝黛爱情线</text>
+        <text class="route-time">约90分钟</text>
+      </view>
+      <view class="route-item {{currentRoute && currentRoute.id === 'jinling' ? 'active' : ''}}"
+        data-route-id="jinling" bindtap="onRouteSelect"
+        style="--route-color: #8B2252;">
+        <text class="route-name">十二金钗探秘</text>
+        <text class="route-time">约120分钟</text>
+      </view>
+      <view class="route-item {{currentRoute && currentRoute.id === 'xingqin' ? 'active' : ''}}"
+        data-route-id="xingqin" bindtap="onRouteSelect"
+        style="--route-color: #B8860B;">
+        <text class="route-name">元妃省亲盛典</text>
+        <text class="route-time">约60分钟</text>
+      </view>
+    </scroll-view>
+
+    <!-- 清除路线 -->
+    <view class="route-clear" wx:if="{{currentRoute}}" bindtap="onRouteClear">
+      <text>✕</text>
+    </view>
+  </view>
+
+  <!-- 附近景点推送（迷你卡片） -->
+  <story-card
+    wx:if="{{nearbySpot}}"
+    spot="{{nearbySpot}}"
+    mode="mini"
+    bind:expand="onSpotTap"
+  />
+</view>

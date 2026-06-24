@@ -1,0 +1,48 @@
+/* components/badge-wall/badge-wall.wxss */
+
+.badge-wall {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--spacing-sm);
+}
+
+.badge-item {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  transition: opacity 0.3s ease;
+}
+
+.badge-item.locked {
+  opacity: 0.3;
+  filter: grayscale(1);
+}
+
+.badge-icon-wrap {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  border: 2rpx solid var(--color-border);
+  margin-bottom: var(--spacing-xs);
+}
+
+.badge-item.unlocked .badge-icon-wrap {
+  background: rgba(196, 30, 58, 0.06);
+  border-color: var(--color-primary);
+}
+
+.badge-icon {
+  font-size: 40rpx;
+}
+
+.badge-name {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-align: center;
+}

@@ -1,0 +1,67 @@
+<!-- pages/ar/ar.wxml - AR实景识别页 -->
+
+<view class="ar-container">
+  <!-- 相机层 -->
+  <camera
+    class="ar-camera"
+    device-position="{{devicePosition}}"
+    flash="off"
+    frame-size="large"
+    binderror="onCameraError"
+    wx:if="{{cameraAuthorized}}"
+  />
+
+  <!-- WebGL叠加层（占位） -->
+  <canvas
+    class="ar-canvas"
+    type="webgl"
+    canvas-id="arCanvas"
+    wx:if="{{cameraAuthorized && arReady}}"
+  />
+
+  <!-- 识别状态指示器 -->
+  <view class="ar-status-bar" wx:if="{{cameraAuthorized}}">
+    <view class="ar-status-indicator {{tracking ? 'tracking' : ''}}">
+      <view class="ar-status-dot" />
+      <text class="ar-status-text">{{trackingStatus}}</text>
+    </view>
+  </view>
+
+  <!-- AR叠加信息浮层 -->
+  <ar-overlay
+    visible="{{showOverlay}}"
+    spot-info="{{detectedSpot}}"
+    tracking="{{tracking}}"
+    bindclose="onOverlayClose"
+    bindtap="onOverlayTap"
+  />
+
+  <!-- 顶部操作栏 -->
+  <view class="ar-top-bar" wx:if="{{cameraAuthorized}}">
+    <view class="ar-close-btn" bindtap="onClose">
+      <text class="ar-close-icon">✕</text>
+    </view>
+    <view class="ar-switch-btn" bindtap="onSwitchCamera">
+      <image class="ar-switch-icon" src="/assets/images/icons/camera-switch.png" mode="aspectFit" />
+    </view>
+  </view>
+
+  <!-- 权限引导/降级提示 -->
+  <view class="ar-permission-guide" wx:if="{{!cameraAuthorized || !arSupported}}">
+    <view class="ar-guide-card">
+      <image class="ar-guide-icon" src="/assets/images/icons/ar-icon.png" mode="aspectFit" />
+      <text class="ar-guide-title font-title">AR实景识别</text>
+      <text class="ar-guide-desc">
+        {{!arSupported ? '您的设备暂不支持AR功能，请升级微信或系统版本' : '需要开启相机权限以使用AR识景功能'}}
+      </text>
+      <view class="ar-guide-actions">
+        <view class="btn btn-primary" wx:if="{{!cameraAuthorized && arSupported}}" bindtap="requestCameraPermission">
+          开启相机权限
+        </view>
+        <view class="btn btn-outline" bindtap="onClose">
+          返回
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

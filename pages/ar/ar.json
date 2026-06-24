@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "ar-overlay": "/components/ar-overlay/ar-overlay"
+  }
+}

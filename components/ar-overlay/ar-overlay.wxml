@@ -1,0 +1,17 @@
+<!-- components/ar-overlay/ar-overlay.wxml -->
+<view class="ar-overlay {{visible ? 'show' : 'hide'}} {{animationClass}}" wx:if="{{spotInfo}}">
+  <view class="overlay-header">
+    <text class="overlay-name">{{spotInfo.name}}</text>
+    <view class="overlay-close" bindtap="onClose">✕</view>
+  </view>
+  <view class="overlay-body" bindtap="onTap">
+    <image class="overlay-image" src="{{spotInfo.image}}" mode="aspectFill" wx:if="{{spotInfo.image}}" />
+    <view class="overlay-info">
+      <text class="overlay-character">{{spotInfo.character}}</text>
+      <text class="overlay-story">{{spotInfo.story}}</text>
+    </view>
+  </view>
+  <view class="overlay-footer">
+    <text class="overlay-tip">点击查看详情</text>
+  </view>
+</view>

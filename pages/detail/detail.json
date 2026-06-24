@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "景点详情",
+  "usingComponents": {
+    "video-player": "/components/video-player/video-player",
+    "audio-player": "/components/audio-player/audio-player"
+  }
+}

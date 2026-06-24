@@ -1,0 +1,113 @@
+<!-- pages/detail/detail.wxml - 景点详情页 -->
+
+<view class="page-container">
+  <!-- 加载中 -->
+  <view class="loading-wrap" wx:if="{{loading}}">
+    <view class="skeleton hero-skeleton" />
+    <view class="skeleton title-skeleton" />
+    <view class="skeleton text-skeleton" />
+    <view class="skeleton text-skeleton short" />
+  </view>
+
+  <!-- 错误状态 -->
+  <view class="error-wrap" wx:elif="{{error}}">
+    <text class="error-text">景点信息加载失败</text>
+    <view class="btn btn-outline" bindtap="onLoad">重试</view>
+  </view>
+
+  <!-- 景点详情 -->
+  <block wx:else>
+    <scroll-view class="detail-scroll" scroll-y="{{true}}" enhanced show-scrollbar="{{false}}">
+      <!-- 顶部大图 -->
+      <view class="hero-image-wrap">
+        <image class="hero-image" src="{{spot.image}}" mode="aspectFill" />
+        <view class="hero-gradient" />
+        <!-- 浮层标题 -->
+        <view class="hero-info">
+          <text class="hero-name font-title">{{spot.name}}</text>
+          <view class="hero-meta">
+            <text class="hero-character">{{spot.character}}</text>
+            <view class="hero-tags">
+              <text class="tag tag-primary" wx:for="{{spot.tags}}" wx:key="*this">{{item}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 内容区 -->
+      <view class="detail-content">
+        <!-- 故事描述 -->
+        <view class="section story-section">
+          <view class="section-header">
+            <text class="section-title font-title">📖 故事</text>
+          </view>
+          <text class="story-text">{{spot.story}}</text>
+        </view>
+
+        <!-- 视频播放 -->
+        <view class="section video-section" wx:if="{{videoSrc}}">
+          <view class="section-header">
+            <text class="section-title font-title">🎬 影像</text>
+          </view>
+          <video-player
+            src="{{videoSrc}}"
+            poster="{{videoPoster}}"
+            title="{{spot.name}}"
+            bindplay="onVideoPlay"
+            bindpause="onVideoPause"
+            bindended="onVideoEnded"
+          />
+        </view>
+
+        <!-- 语音讲解 -->
+        <view class="section audio-section" wx:if="{{audioSrc}}">
+          <view class="section-header">
+            <text class="section-title font-title">🎧 语音讲解</text>
+          </view>
+          <audio-player
+            src="{{audioSrc}}"
+            title="{{audioTitle}}"
+            bindplay="onAudioPlay"
+            bindpause="onAudioPause"
+          />
+        </view>
+
+        <!-- 位置信息 -->
+        <view class="section location-section">
+          <view class="section-header">
+            <text class="section-title font-title">📍 位置</text>
+          </view>
+          <view class="location-info">
+            <text class="location-text">{{spot.latitude}}, {{spot.longitude}}</text>
+            <text class="location-area">区域：{{spot.area}}</text>
+          </view>
+        </view>
+
+        <!-- 底部留白 -->
+        <view style="height: 140rpx;" />
+      </view>
+    </scroll-view>
+
+    <!-- 底部操作栏 -->
+    <view class="bottom-bar safe-area-bottom">
+      <view class="bottom-btn {{isFavorited ? 'active' : ''}}" bindtap="onToggleFavorite">
+        <image
+          class="bottom-btn-icon"
+          src="/assets/images/icons/{{isFavorited ? 'heart-filled' : 'heart'}}.png"
+          mode="aspectFit"
+        />
+        <text class="bottom-btn-text">{{isFavorited ? '已收藏' : '收藏'}}</text>
+      </view>
+
+      <button class="bottom-btn" open-type="share">
+        <image class="bottom-btn-icon" src="/assets/images/icons/share.png" mode="aspectFit" />
+        <text class="bottom-btn-text">分享</text>
+      </button>
+
+      <view class="bottom-btn primary" bindtap="onARClick">
+        <image class="bottom-btn-icon" src="/assets/images/icons/ar-icon.png" mode="aspectFit" />
+        <text class="bottom-btn-text">AR识景</text>
+      </view>
+    </view>
+  </block>
+</view>

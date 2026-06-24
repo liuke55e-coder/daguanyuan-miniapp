@@ -1,0 +1,74 @@
+{
+  "targets": [
+    {
+      "id": "yihongyuan",
+      "spotId": "yihongyuan",
+      "imagePath": "/assets/images/ar-targets/yihongyuan.jpg",
+      "name": "怡红院门楼",
+      "description": "拍摄怡红院正门建筑全景"
+    },
+    {
+      "id": "xiaoxiangguan",
+      "spotId": "xiaoxiangguan",
+      "imagePath": "/assets/images/ar-targets/xiaoxiangguan.jpg",
+      "name": "潇湘馆「有凤来仪」匾额",
+      "description": "拍摄潇湘馆入口匾额"
+    },
+    {
+      "id": "luwei'an",
+      "spotId": "luwei'an",
+      "imagePath": "/assets/images/ar-targets/luwei'an.jpg",
+      "name": "蘅芜苑入口",
+      "description": "拍摄蘅芜苑建筑入口"
+    },
+    {
+      "id": "daguanlou",
+      "spotId": "daguanlou",
+      "imagePath": "/assets/images/ar-targets/daguanlou.jpg",
+      "name": "大观楼正面",
+      "description": "拍摄大观楼正面全景"
+    },
+    {
+      "id": "tirenmude",
+      "spotId": "tirenmude",
+      "imagePath": "/assets/images/ar-targets/tirenmude.jpg",
+      "name": "体仁沐德",
+      "description": "拍摄体仁沐德建筑正面"
+    },
+    {
+      "id": "longcui'an",
+      "spotId": "longcui'an",
+      "imagePath": "/assets/images/ar-targets/longcui'an.jpg",
+      "name": "栊翠庵门头",
+      "description": "拍摄栊翠庵入口门头"
+    },
+    {
+      "id": "daoxiangcun",
+      "spotId": "daoxiangcun",
+      "imagePath": "/assets/images/ar-targets/daoxiangcun.jpg",
+      "name": "稻香村",
+      "description": "拍摄稻香村全景"
+    },
+    {
+      "id": "qinfangting",
+      "spotId": "qinfangting",
+      "imagePath": "/assets/images/ar-targets/qinfangting.jpg",
+      "name": "沁芳亭",
+      "description": "拍摄沁芳亭桥全景"
+    },
+    {
+      "id": "shengqinpaifang",
+      "spotId": "shengqinpaifang",
+      "imagePath": "/assets/images/ar-targets/shengqinpaifang.jpg",
+      "name": "省亲牌坊",
+      "description": "拍摄省亲牌坊正面"
+    },
+    {
+      "id": "qushuizhai",
+      "spotId": "qushuizhai",
+      "imagePath": "/assets/images/ar-targets/qushuizhai.jpg",
+      "name": "秋爽斋",
+      "description": "拍摄秋爽斋建筑正面"
+    }
+  ]
+}

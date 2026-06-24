@@ -1,0 +1,15 @@
+<!-- components/badge-wall/badge-wall.wxml -->
+<view class="badge-wall">
+  <view
+    class="badge-item {{badge.unlocked ? 'unlocked' : 'locked'}}"
+    wx:for="{{badges}}"
+    wx:key="id"
+    data-badge="{{item}}"
+    bindtap="onBadgeTap"
+  >
+    <view class="badge-icon-wrap">
+      <text class="badge-icon">{{item.icon}}</text>
+    </view>
+    <text class="badge-name">{{item.name}}</text>
+  </view>
+</view>

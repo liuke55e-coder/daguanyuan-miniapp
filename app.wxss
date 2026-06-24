@@ -1,0 +1,196 @@
+/* app.wxss - 全局样式 */
+/* 上海大观园数字孪生导览系统 */
+
+/* ===== CSS 变量（设计令牌） ===== */
+page {
+  /* 主色调 - 取自大观园建筑色彩 */
+  --color-primary: #C41E3A;       /* 朱红 */
+  --color-primary-dark: #9B1730;  /* 深朱红 */
+  --color-primary-light: #E84A5F; /* 浅朱红 */
+  --color-secondary: #2E8B57;     /* 琉璃绿 */
+  --color-secondary-light: #45B07C;
+  --color-accent: #B8860B;        /* 金色（元妃线） */
+  --color-accent-purple: #8B2252; /* 紫色（十二金钗线） */
+
+  /* 中性色 */
+  --color-bg: #F5F0E8;            /* 宣纸白（页面背景） */
+  --color-bg-card: #FFFFFF;       /* 卡片背景 */
+  --color-text: #3C3C3C;          /* 墨灰（正文） */
+  --color-text-secondary: #888888;/* 次要文字 */
+  --color-text-light: #BBBBBB;    /* 辅助文字 */
+  --color-border: #E8E0D5;        /* 边框 */
+  --color-divider: #F0EBE3;       /* 分割线 */
+
+  /* 功能色 */
+  --color-success: #52C41A;
+  --color-warning: #FAAD14;
+  --color-error: #FF4D4F;
+
+  /* 尺寸 */
+  --radius-sm: 8rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 24rpx;
+  --radius-round: 999rpx;
+
+  /* 阴影 */
+  --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8rpx 32rpx rgba(0, 0, 0, 0.12);
+
+  /* 字体 */
+  --font-family-title: 'STSong', 'SimSun', 'Songti SC', serif;
+  --font-family-body: -apple-system, BlinkMacSystemFont, 'PingFang SC',
+    'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+
+  /* 字号 */
+  --font-size-xs: 20rpx;
+  --font-size-sm: 24rpx;
+  --font-size-base: 28rpx;
+  --font-size-md: 32rpx;
+  --font-size-lg: 36rpx;
+  --font-size-xl: 44rpx;
+  --font-size-xxl: 56rpx;
+
+  /* 间距 */
+  --spacing-xs: 8rpx;
+  --spacing-sm: 16rpx;
+  --spacing-md: 24rpx;
+  --spacing-lg: 32rpx;
+  --spacing-xl: 48rpx;
+
+  /* 全局应用 */
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== 通用工具类 ===== */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-light { color: var(--color-text-light); }
+
+.font-title { font-family: var(--font-family-title); }
+.font-bold { font-weight: 700; }
+
+.flex { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-column { display: flex; flex-direction: column; }
+.flex-1 { flex: 1; }
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+
+/* ===== 通用组件样式 ===== */
+
+/* 底部弹窗 (Bottom Sheet) */
+.bottom-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  z-index: 1000;
+}
+
+.bottom-sheet-handle {
+  width: 60rpx;
+  height: 6rpx;
+  background: var(--color-border);
+  border-radius: 3rpx;
+  margin: 16rpx auto;
+}
+
+/* 通用按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  padding: 0 var(--spacing-lg);
+  border-radius: var(--radius-round);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn-primary:active {
+  background: var(--color-primary-dark);
+  transform: scale(0.97);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2rpx solid var(--color-primary);
+}
+
+.btn-ghost {
+  background: rgba(196, 30, 58, 0.08);
+  color: var(--color-primary);
+}
+
+/* 标签 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 16rpx;
+  border-radius: var(--radius-round);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+.tag-primary {
+  background: rgba(196, 30, 58, 0.1);
+  color: var(--color-primary);
+}
+
+.tag-secondary {
+  background: rgba(46, 139, 87, 0.1);
+  color: var(--color-secondary);
+}
+
+/* 骨架屏 */
+.skeleton {
+  background: linear-gradient(90deg, #F0EBE3 25%, #E8E0D5 50%, #F0EBE3 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 安全区域适配 */
+.safe-area-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}

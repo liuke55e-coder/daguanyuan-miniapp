@@ -1,0 +1,65 @@
+<!-- pages/relations/relations.wxml - 人物关系页 -->
+
+<view class="page-container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title font-title">金陵群芳谱</text>
+    <text class="page-subtitle">红楼梦人物关系</text>
+  </view>
+
+  <!-- 人物列表 -->
+  <scroll-view
+    class="character-list"
+    scroll-y="{{true}}"
+    enhanced
+    show-scrollbar="{{false}}"
+  >
+    <view
+      class="character-card shadow-sm {{expandedId === item.id ? 'expanded' : ''}}"
+      wx:for="{{characters}}"
+      wx:key="id"
+    >
+      <!-- 人物主信息 -->
+      <view
+        class="character-main"
+        data-character-id="{{item.id}}"
+        bindtap="onCharacterTap"
+      >
+        <image class="character-avatar" src="{{item.image}}" mode="aspectFill" />
+        <view class="character-info">
+          <view class="character-name-row">
+            <text class="character-name font-title">{{item.name}}</text>
+            <text class="character-alias">{{item.alias}}</text>
+          </view>
+          <text class="character-role">{{item.role}}</text>
+          <text class="character-spot" wx:if="{{item.spot}}">📍 {{item.spot}}</text>
+        </view>
+        <view class="character-arrow">
+          <text>{{expandedId === item.id ? '▲' : '▼'}}</text>
+        </view>
+      </view>
+
+      <!-- 关系展开区 -->
+      <view class="character-relations" wx:if="{{expandedId === item.id}}">
+        <text class="relations-title">关系网络</text>
+        <view class="relations-list">
+          <view
+            class="relation-item"
+            wx:for="{{item.relations}}"
+            wx:for-item="rel"
+            wx:key="characterId"
+            data-related-id="{{rel.characterId}}"
+            bindtap="onRelationTap"
+          >
+            <text class="relation-type">{{rel.type}}</text>
+            <text class="relation-label">{{rel.label}}</text>
+            <text class="relation-arrow">→</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部留白 -->
+    <view style="height: 40rpx;" />
+  </scroll-view>
+</view>

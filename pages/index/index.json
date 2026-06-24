@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "大观园",
+  "usingComponents": {
+    "map-canvas": "/components/map-canvas/map-canvas",
+    "story-card": "/components/story-card/story-card"
+  }
+}

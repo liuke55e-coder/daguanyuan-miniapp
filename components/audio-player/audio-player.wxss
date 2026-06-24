@@ -1,0 +1,65 @@
+/* components/audio-player/audio-player.wxss */
+
+.audio-player {
+  padding: var(--spacing-md);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  border: 1rpx solid var(--color-border);
+}
+
+.audio-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.audio-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: var(--spacing-xs);
+}
+
+.audio-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  font-family: var(--font-family-title);
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+}
+
+.audio-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  border-radius: var(--radius-round);
+  margin-right: var(--spacing-sm);
+}
+
+.audio-btn:active {
+  background: var(--color-primary-dark);
+  transform: scale(0.95);
+}
+
+.audio-btn image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.audio-slider {
+  flex: 1;
+  margin: 0 var(--spacing-sm);
+}
+
+.audio-time {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  min-width: 70rpx;
+  text-align: right;
+}

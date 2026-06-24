@@ -1,0 +1,37 @@
+{
+  "routes": [
+    {
+      "id": "love",
+      "name": "宝黛爱情线",
+      "subtitle": "从共读西厢到焚稿断痴情",
+      "description": "沿着宝黛爱情发展的轨迹，探访两人在大观园中最动人的瞬间。从沁芳亭下的《西厢记》，到潇湘馆里的葬花吟，再到怡红院中的晴雯撕扇，最后在蘅芜苑见证金玉良缘与木石前盟的悲剧结局。",
+      "coverImage": "https://cdn.example.com/routes/love-cover.jpg",
+      "duration": "约90分钟",
+      "spots": ["qinfangting", "xiaoxiangguan", "yihongyuan", "qushuizhai", "luwei'an"],
+      "color": "#C41E3A",
+      "icon": "love"
+    },
+    {
+      "id": "jinling",
+      "name": "十二金钗探秘",
+      "subtitle": "逐一探访金陵十二钗的居所",
+      "description": "走进六位金钗在大观园中的住所，从黛玉的潇湘馆到宝钗的蘅芜苑，从李纨的稻香村到妙玉的栊翠庵，解锁她们的命运密码，感受曹雪芹笔下千红一哭、万艳同悲的深刻主题。",
+      "coverImage": "https://cdn.example.com/routes/jinling-cover.jpg",
+      "duration": "约120分钟",
+      "spots": ["xiaoxiangguan", "luwei'an", "daoxiangcun", "qushuizhai", "zilingzhou", "longcui'an"],
+      "color": "#8B2252",
+      "icon": "jinling"
+    },
+    {
+      "id": "xingqin",
+      "name": "元妃省亲盛典",
+      "subtitle": "还原皇家仪仗的恢弘场面",
+      "description": "重走元妃省亲之路，从大门广场的太虚幻境牌坊，到体仁沐德更衣小憩，再到大观楼正殿朝觐，感受贾府鼎盛时期的荣耀与奢靡。省亲盛典是贾府最后的辉煌，自此江河日下。",
+      "coverImage": "https://cdn.example.com/routes/xingqin-cover.jpg",
+      "duration": "约60分钟",
+      "spots": ["damen", "tirenmude", "daguanlou", "shengqinpaifang"],
+      "color": "#B8860B",
+      "icon": "xingqin"
+    }
+  ]
+}

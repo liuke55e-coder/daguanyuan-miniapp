@@ -1,0 +1,115 @@
+{
+  "achievements": [
+    {
+      "id": "first_visit",
+      "name": "初入大观园",
+      "description": "首次到达任意景点",
+      "icon": "/assets/images/badges/badge-first-visit.png",
+      "category": "explore",
+      "rarity": "common",
+      "condition": { "type": "visit_count", "value": 1 }
+    },
+    {
+      "id": "explorer_5",
+      "name": "游园新秀",
+      "description": "累计游览5个景点",
+      "icon": "/assets/images/badges/badge-explorer-5.png",
+      "category": "explore",
+      "rarity": "common",
+      "condition": { "type": "visit_count", "value": 5 }
+    },
+    {
+      "id": "explorer_10",
+      "name": "大观园常客",
+      "description": "累计游览10个景点",
+      "icon": "/assets/images/badges/badge-explorer-10.png",
+      "category": "explore",
+      "rarity": "rare",
+      "condition": { "type": "visit_count", "value": 10 }
+    },
+    {
+      "id": "explorer_15",
+      "name": "大观园达人",
+      "description": "累计游览15个景点",
+      "icon": "/assets/images/badges/badge-explorer-15.png",
+      "category": "explore",
+      "rarity": "rare",
+      "condition": { "type": "visit_count", "value": 15 }
+    },
+    {
+      "id": "explorer_all",
+      "name": "大观园通",
+      "description": "打卡全部20个景点",
+      "icon": "/assets/images/badges/badge-explorer-all.png",
+      "category": "explore",
+      "rarity": "legendary",
+      "condition": { "type": "visit_count", "value": 20 }
+    },
+    {
+      "id": "love_route",
+      "name": "木石前盟",
+      "description": "完成「宝黛爱情线」全部景点",
+      "icon": "/assets/images/badges/badge-love.png",
+      "category": "route",
+      "rarity": "rare",
+      "condition": { "type": "route_complete", "routeId": "love" }
+    },
+    {
+      "id": "jinling_route",
+      "name": "金陵十二钗",
+      "description": "完成「十二金钗探秘」全部景点",
+      "icon": "/assets/images/badges/badge-jinling.png",
+      "category": "route",
+      "rarity": "rare",
+      "condition": { "type": "route_complete", "routeId": "jinling" }
+    },
+    {
+      "id": "xingqin_route",
+      "name": "皇恩浩荡",
+      "description": "完成「元妃省亲盛典」全部景点",
+      "icon": "/assets/images/badges/badge-xingqin.png",
+      "category": "route",
+      "rarity": "rare",
+      "condition": { "type": "route_complete", "routeId": "xingqin" }
+    },
+    {
+      "id": "all_routes",
+      "name": "红楼梦圆",
+      "description": "完成全部3条主题路线",
+      "icon": "/assets/images/badges/badge-all-routes.png",
+      "category": "route",
+      "rarity": "legendary",
+      "condition": { "type": "collect_badges", "category": "route", "value": 3 }
+    },
+    {
+      "id": "favorite_lover",
+      "name": "红楼收藏家",
+      "description": "收藏5个以上景点",
+      "icon": "/assets/images/badges/badge-favorite.png",
+      "category": "social",
+      "rarity": "common",
+      "condition": { "type": "favorite_count", "value": 5 }
+    },
+    {
+      "id": "san_da_jinling",
+      "name": "三大金钗",
+      "description": "同时打卡潇湘馆、蘅芜苑、稻香村",
+      "icon": "/assets/images/badges/badge-san-da.png",
+      "category": "special",
+      "rarity": "rare",
+      "condition": {
+        "type": "visit_specific",
+        "spotIds": ["xiaoxiangguan", "luwei'an", "daoxiangcun"]
+      }
+    },
+    {
+      "id": "ar_explorer",
+      "name": "火眼金睛",
+      "description": "使用AR识别5个不同建筑",
+      "icon": "/assets/images/badges/badge-ar.png",
+      "category": "special",
+      "rarity": "rare",
+      "condition": { "type": "visit_count", "value": 5 }
+    }
+  ]
+}

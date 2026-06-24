@@ -1,0 +1,164 @@
+/* pages/relations/relations.wxss - 人物关系页样式 */
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--color-bg);
+}
+
+/* ===== 页面标题 ===== */
+.page-header {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-bottom: 1rpx solid var(--color-divider);
+}
+
+.page-title {
+  display: block;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 4rpx;
+}
+
+.page-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ===== 人物列表 ===== */
+.character-list {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* ===== 人物卡片 ===== */
+.character-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-sm);
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.character-card.expanded {
+  box-shadow: var(--shadow-md);
+}
+
+.character-main {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm);
+  transition: background 0.15s ease;
+}
+
+.character-main:active {
+  background: var(--color-divider);
+}
+
+.character-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: var(--radius-md);
+  background: var(--color-divider);
+  flex-shrink: 0;
+  margin-right: var(--spacing-sm);
+}
+
+.character-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.character-name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-bottom: 4rpx;
+}
+
+.character-name {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.character-alias {
+  font-size: var(--font-size-xs);
+  color: var(--color-accent);
+  background: rgba(184, 134, 11, 0.08);
+  padding: 2rpx 12rpx;
+  border-radius: var(--radius-round);
+}
+
+.character-role {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: 2rpx;
+}
+
+.character-spot {
+  font-size: var(--font-size-xs);
+  color: var(--color-secondary);
+}
+
+.character-arrow {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  padding: var(--spacing-sm);
+}
+
+/* ===== 关系展开区 ===== */
+.character-relations {
+  padding: 0 var(--spacing-sm) var(--spacing-sm);
+  border-top: 1rpx solid var(--color-divider);
+  animation: expandIn 0.25s ease;
+}
+
+@keyframes expandIn {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 600rpx; }
+}
+
+.relations-title {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  padding: var(--spacing-sm) 0;
+}
+
+.relations-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.relation-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-bg);
+  border-radius: var(--radius-round);
+  border: 1rpx solid var(--color-border);
+  font-size: var(--font-size-xs);
+}
+
+.relation-type {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-right: 6rpx;
+}
+
+.relation-label {
+  color: var(--color-text);
+  margin-right: 6rpx;
+}
+
+.relation-arrow {
+  color: var(--color-text-light);
+  font-size: 18rpx;
+}

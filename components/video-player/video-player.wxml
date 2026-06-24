@@ -1,0 +1,22 @@
+<!-- components/video-player/video-player.wxml -->
+<view class="video-player">
+  <video
+    id="videoPlayer"
+    class="video-element"
+    src="{{src}}"
+    poster="{{poster}}"
+    autoplay="{{autoplay}}"
+    loop="{{loop}}"
+    muted="{{muted}}"
+    show-center-play-btn="{{!playing}}"
+    show-play-btn="{{true}}"
+    enable-progress-gesture="{{true}}"
+    object-fit="contain"
+    bindplay="onPlay"
+    bindpause="onPause"
+    bindended="onEnded"
+    bindtimeupdate="onTimeUpdate"
+    binderror="onError"
+  />
+  <view class="video-title" wx:if="{{title && !playing}}">{{title}}</view>
+</view>

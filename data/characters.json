@@ -1,0 +1,97 @@
+{
+  "characters": [
+    {
+      "id": "jiabaoyu",
+      "name": "贾宝玉",
+      "title": "怡红公子",
+      "avatar": "https://cdn.example.com/avatars/baoyu.png",
+      "residence": "yihongyuan",
+      "description": "荣国府贾政之子，衔玉而生。厌恶仕途经济，崇尚真情至性，是封建社会的叛逆者。与林黛玉互为知己，最终在家族安排下娶薛宝钗。",
+      "relations": [
+        { "target": "lindaiyu", "type": "恋人", "label": "木石前盟" },
+        { "target": "xuebaochai", "type": "妻子", "label": "金玉良缘" },
+        { "target": "jiayuanchun", "type": "姐姐", "label": "元妃" },
+        { "target": "shitai", "type": "表亲", "label": "贾母之孙" }
+      ]
+    },
+    {
+      "id": "lindaiyu",
+      "name": "林黛玉",
+      "title": "潇湘妃子",
+      "avatar": "https://cdn.example.com/avatars/daiyu.png",
+      "residence": "xiaoxiangguan",
+      "description": "贾母外孙女，才华横溢，多愁善感。前世为绛珠仙草，以泪还恩。与贾宝玉心意相通，却因命运作弄未能成眷属。",
+      "relations": [
+        { "target": "jiabaoyu", "type": "恋人", "label": "木石前盟" },
+        { "target": "shitai", "type": "外孙女", "label": "贾母之甥" },
+        { "target": "xuebaochai", "type": "情敌", "label": "钗黛之争" }
+      ]
+    },
+    {
+      "id": "xuebaochai",
+      "name": "薛宝钗",
+      "title": "蘅芜君",
+      "avatar": "https://cdn.example.com/avatars/baochai.png",
+      "residence": "luwei'an",
+      "description": "薛家之女，端庄贤淑，博学多才。佩金锁与宝玉之玉相配，最终在家族安排下与宝玉成婚，却独守空房。",
+      "relations": [
+        { "target": "jiabaoyu", "type": "妻子", "label": "金玉良缘" },
+        { "target": "lindaiyu", "type": "情敌", "label": "钗黛之争" }
+      ]
+    },
+    {
+      "id": "jiayuanchun",
+      "name": "贾元春",
+      "title": "贤德妃",
+      "avatar": "https://cdn.example.com/avatars/yuanchun.png",
+      "residence": null,
+      "description": "贾政长女，入宫为妃。省亲是贾府鼎盛的象征，她的早逝也成为贾府衰败的转折。",
+      "relations": [
+        { "target": "jiabaoyu", "type": "弟弟", "label": "元妃" }
+      ]
+    },
+    {
+      "id": "miaoyu",
+      "name": "妙玉",
+      "title": "槛外人",
+      "avatar": "https://cdn.example.com/avatars/miaoyu.png",
+      "residence": "longcui'an",
+      "description": "出身仕宦之家，带发修行于栊翠庵。性情孤高，精于茶道。与宝玉、黛玉有惺惺相惜之情。",
+      "relations": [
+        { "target": "jiabaoyu", "type": "知己", "label": "茶友" }
+      ]
+    },
+    {
+      "id": "liwan",
+      "name": "李纨",
+      "title": "稻香老农",
+      "avatar": "https://cdn.example.com/avatars/liwan.png",
+      "residence": "daoxiangcun",
+      "description": "贾珠遗孀，年轻守寡，一心教子。性格淡泊，如稻香村般朴素无华。最终母凭子贵。",
+      "relations": []
+    },
+    {
+      "id": "shitai",
+      "name": "史湘云",
+      "title": "枕霞旧友",
+      "avatar": "https://cdn.example.com/avatars/xiangyun.png",
+      "residence": "ouxianxie",
+      "description": "贾母侄孙女，性格豪爽，才情出众。醉卧芍药裀是大观园中最美的画面之一。",
+      "relations": [
+        { "target": "jiabaoyu", "type": "表亲", "label": "青梅竹马" },
+        { "target": "lindaiyu", "type": "诗友", "label": "联诗知己" }
+      ]
+    },
+    {
+      "id": "jiatanchun",
+      "name": "贾探春",
+      "title": "蕉下客",
+      "avatar": "https://cdn.example.com/avatars/tanchun.png",
+      "residence": "qushuizhai",
+      "description": "贾政庶女，精明能干，志向高远。是大观园诗社的发起者。最终远嫁海疆。",
+      "relations": [
+        { "target": "jiabaoyu", "type": "兄妹", "label": "庶出妹妹" }
+      ]
+    }
+  ]
+}

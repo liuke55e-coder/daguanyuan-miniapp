@@ -1,0 +1,113 @@
+<!-- pages/profile/profile.wxml - 我的页面 -->
+
+<view class="page-container">
+  <scroll-view class="profile-scroll" scroll-y="{{true}}" enhanced show-scrollbar="{{false}}">
+    <!-- 顶部用户信息区 -->
+    <view class="profile-header">
+      <view class="header-bg" />
+      <view class="header-content">
+        <!-- 头像 -->
+        <view class="avatar-wrap">
+          <image
+            class="avatar-img"
+            src="{{userInfo.avatarUrl || '/assets/images/default-avatar.png'}}"
+            mode="aspectFill"
+          />
+        </view>
+        <text class="user-name font-title">{{userInfo.nickName || '红楼游客'}}</text>
+        <text class="user-desc">探索大观园的奇妙世界</text>
+      </view>
+    </view>
+
+    <!-- 数据统计 -->
+    <view class="stats-bar">
+      <view class="stat-item">
+        <text class="stat-number">{{stats.visitedSpots}}</text>
+        <text class="stat-label">已游览景点</text>
+      </view>
+      <view class="stat-divider" />
+      <view class="stat-item">
+        <text class="stat-number">{{stats.routes}}</text>
+        <text class="stat-label">完成路线</text>
+      </view>
+      <view class="stat-divider" />
+      <view class="stat-item">
+        <text class="stat-number">{{stats.achievements}}</text>
+        <text class="stat-label">成就徽章</text>
+      </view>
+    </view>
+
+    <!-- 成就徽章墙 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title font-title">🏆 成就徽章</text>
+      </view>
+      <badge-wall
+        achievements="{{achievements}}"
+        unlockedIds="{{unlockedAchievementIds}}"
+      />
+    </view>
+
+    <!-- 收藏列表入口 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title font-title">⭐ 我的收藏</text>
+        <text class="section-more" bindtap="onFavoritesTap">查看全部 ›</text>
+      </view>
+      <view class="favorites-preview" wx:if="{{favoriteSpots.length > 0}}">
+        <view class="fav-item" wx:for="{{favoriteSpots}}" wx:key="id">
+          <image class="fav-thumb" src="{{item.thumbnail}}" mode="aspectFill" />
+          <text class="fav-name">{{item.name}}</text>
+        </view>
+      </view>
+      <view class="empty-hint" wx:else>
+        <text>还没有收藏景点，去发现精彩吧</text>
+      </view>
+    </view>
+
+    <!-- 最近游览 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title font-title">🕐 最近游览</text>
+        <text class="section-more" bindtap="onRecordsTap">查看全部 ›</text>
+      </view>
+      <view class="visit-list" wx:if="{{recentVisits.length > 0}}">
+        <view class="visit-item" wx:for="{{recentVisits}}" wx:key="spotId">
+          <text class="visit-name">{{item.spotName}}</text>
+          <text class="visit-count" wx:if="{{item.visitCount > 1}}">×{{item.visitCount}}</text>
+          <text class="visit-time">{{item.visitTime | formatVisitTime}}</text>
+        </view>
+      </view>
+      <view class="empty-hint" wx:else>
+        <text>开始你的大观园之旅吧</text>
+      </view>
+    </view>
+
+    <!-- 关于 -->
+    <view class="section">
+      <view class="about-item" bindtap="onAboutTap">
+        <text class="about-text">关于上海大观园数字导览</text>
+        <text class="about-arrow">›</text>
+      </view>
+    </view>
+
+    <!-- 底部 -->
+    <view class="profile-footer">
+      <text class="footer-text">上海大观园数字孪生导览系统 v1.0.0</text>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 时间格式化 WXS -->
+<wxs module="formatVisitTime">
+  var format = function(timestamp) {
+    if (!timestamp) return '';
+    var d = getDate(timestamp);
+    var month = d.getMonth() + 1;
+    var day = d.getDate();
+    var hour = d.getHours();
+    var min = d.getMinutes();
+    return month + '/' + day + ' ' + (hour < 10 ? '0' + hour : hour) + ':' + (min < 10 ? '0' + min : min);
+  };
+  module.exports = format;
+</wxs>

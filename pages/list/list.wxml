@@ -1,0 +1,84 @@
+<!-- pages/list/list.wxml - 景点列表页 -->
+
+<view class="page-container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <image class="search-icon" src="/assets/images/icons/search.png" mode="aspectFit" />
+      <input
+        class="search-input"
+        placeholder="搜索景点、人物或标签..."
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        confirm-type="search"
+      />
+      <view class="search-clear" wx:if="{{searchKeyword}}" bindtap="onClearSearch">
+        <text>✕</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分组列表 -->
+  <scroll-view
+    class="spot-list"
+    scroll-y="{{true}}"
+    enhanced
+    show-scrollbar="{{false}}"
+  >
+    <view class="group-section" wx:for="{{groupedSpots}}" wx:key="area">
+      <!-- 分组标题 -->
+      <view class="group-header">
+        <text class="group-title font-title">{{item.area}}</text>
+        <text class="group-count">{{item.spots.length}}个景点</text>
+      </view>
+
+      <!-- 景点列表 -->
+      <view class="spot-grid">
+        <view
+          class="spot-card shadow-md"
+          wx:for="{{item.spots}}"
+          wx:for-item="spot"
+          wx:key="id"
+          data-spot-id="{{spot.id}}"
+          bindtap="onSpotTap"
+        >
+          <!-- 已访问勾标记 -->
+          <view class="visited-badge" wx:if="{{visitedIds.indexOf(spot.id) > -1}}">
+            <text class="visited-check">✓</text>
+          </view>
+
+          <!-- 缩略图 -->
+          <image
+            class="spot-thumb"
+            src="{{spot.thumbnail}}"
+            mode="aspectFill"
+            lazy-load="{{true}}"
+          />
+
+          <!-- 信息 -->
+          <view class="spot-info">
+            <text class="spot-name font-title">{{spot.name}}</text>
+            <text class="spot-character">{{spot.character}}</text>
+          </view>
+
+          <!-- 标签 -->
+          <view class="spot-tags" wx:if="{{spot.tags.length > 0}}">
+            <text class="tag tag-primary" wx:for="{{spot.tags}}" wx:for-item="tag" wx:key="*this">
+              {{tag}}
+            </text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{groupedSpots.length === 0 && !loading}}">
+      <image class="empty-icon" src="/assets/images/icons/empty-spot.png" mode="aspectFit" />
+      <text class="empty-text">未找到匹配的景点</text>
+      <text class="empty-hint">试试其他关键词</text>
+    </view>
+
+    <!-- 底部安全距离 -->
+    <view class="safe-area-bottom" style="height: 40rpx;" />
+  </scroll-view>
+</view>

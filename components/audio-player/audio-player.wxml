@@ -1,0 +1,33 @@
+<!-- components/audio-player/audio-player.wxml -->
+<view class="audio-player">
+  <view class="audio-header">
+    <image class="audio-icon" src="/assets/images/icons/audio.png" mode="aspectFit" />
+    <text class="audio-title">{{title}}</text>
+  </view>
+  <view class="audio-controls">
+    <view class="audio-btn" bindtap="togglePlay">
+      <image src="/assets/images/icons/{{playing ? 'pause' : 'play'}}.png" mode="aspectFit" />
+    </view>
+    <slider
+      class="audio-slider"
+      min="0"
+      max="100"
+      value="{{progress}}"
+      activeColor="#C41E3A"
+      backgroundColor="#E8E0D5"
+      block-size="16"
+      bindchange="seekTo"
+    />
+    <text class="audio-time">{{currentTime | formatTime}}</text>
+  </view>
+</view>
+
+<wxs module="formatTime">
+  var format = function(val) {
+    if (!val) return '00:00';
+    var m = Math.floor(val / 60);
+    var s = Math.floor(val % 60);
+    return (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
+  };
+  module.exports = format;
+</wxs>
