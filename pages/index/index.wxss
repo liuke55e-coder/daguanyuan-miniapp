@@ -26,9 +26,7 @@
   justify-content: center;
   width: 100rpx;
   height: 100rpx;
-  background: rgba(255, 255, 255, 0.95);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
   z-index: 10;
 }
 
@@ -37,16 +35,77 @@
   transition: transform 0.15s ease;
 }
 
-.ar-icon {
-  width: 44rpx;
-  height: 44rpx;
-  margin-bottom: 4rpx;
+.ar-icon-text {
+  font-size: 36rpx;
+  margin-bottom: 2rpx;
 }
 
 .ar-text {
   font-size: var(--font-size-xs);
-  color: var(--color-primary);
+  color: var(--color-dailan);
   font-weight: 500;
+}
+
+/* ===== 模拟导航控制条 ===== */
+.sim-bar {
+  position: absolute;
+  top: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-round);
+  z-index: 20;
+}
+
+.sim-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.sim-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: var(--color-zhusha);
+  animation: sim-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes sim-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.sim-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-dailan);
+  font-weight: 500;
+}
+
+.sim-controls {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.sim-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: var(--color-dailan-wash);
+  font-size: var(--font-size-sm);
+  color: var(--color-dailan);
+}
+
+.sim-speed {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  width: 56rpx;
 }
 
 /* 位置授权提示 */
@@ -105,8 +164,8 @@
 }
 
 .route-item.active {
-  background: rgba(196, 30, 58, 0.06);
-  border-color: var(--route-color, var(--color-primary));
+  background: var(--color-dailan-wash);
+  border-color: var(--route-color, var(--color-zhusha));
 }
 
 .route-name {

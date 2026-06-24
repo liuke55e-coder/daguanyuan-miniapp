@@ -4,50 +4,59 @@
   <view class="map-area">
     <map-canvas
       id="mapCanvas"
-      spots="{{spots}}"
       userLatitude="{{userLatitude}}"
       userLongitude="{{userLongitude}}"
       currentRoute="{{currentRoute}}"
+      visitedSpotIds="{{visitedSpotIds}}"
       bind:spottap="onSpotTap"
     />
 
-    <!-- AR入口按钮 -->
-    <view class="ar-entry" bindtap="onARClick">
-      <image class="ar-icon" src="/assets/images/icons/ar-icon.png" mode="aspectFit" />
-      <text class="ar-text">AR识景</text>
+    <!-- 模拟导航控制条（开发模式） -->
+    <view class="sim-bar glass" wx:if="{{isSimulating}}">
+      <view class="sim-indicator">
+        <view class="sim-dot"></view>
+        <text class="sim-label">模拟导航中</text>
+      </view>
+      <view class="sim-controls">
+        <text class="sim-btn" bindtap="onToggleSimulation">
+          {{simPaused ? '▶' : '⏸'}}
+        </text>
+        <text class="sim-btn sim-speed" bindtap="onChangeSimSpeed">
+          {{simSpeed}}x
+        </text>
+      </view>
     </view>
 
-    <!-- 位置未授权提示 -->
-    <view class="location-tip" wx:if="{{!locationAuthorized}}">
-      <text>开启位置授权可自动获取景点讲解</text>
-      <text class="location-tip-link" bindtap="requestLocation">去开启</text>
+    <!-- AR入口按钮 -->
+    <view class="ar-entry glass" bindtap="onARClick">
+      <text class="ar-icon-text">🔍</text>
+      <text class="ar-text">AR识景</text>
     </view>
   </view>
 
   <!-- 路线选择器 -->
-  <view class="route-bar">
+  <view class="route-bar glass">
     <scroll-view class="route-scroll" scroll-x="{{true}}" enhanced show-scrollbar="{{false}}">
       <view class="route-item {{currentRoute && currentRoute.id === 'love' ? 'active' : ''}}"
         data-route-id="love" bindtap="onRouteSelect"
-        style="--route-color: #C41E3A;">
+        style="--route-color: #C04040;">
         <text class="route-name">宝黛爱情线</text>
         <text class="route-time">约90分钟</text>
       </view>
       <view class="route-item {{currentRoute && currentRoute.id === 'jinling' ? 'active' : ''}}"
         data-route-id="jinling" bindtap="onRouteSelect"
-        style="--route-color: #8B2252;">
+        style="--route-color: #8B5E6B;">
         <text class="route-name">十二金钗探秘</text>
         <text class="route-time">约120分钟</text>
       </view>
       <view class="route-item {{currentRoute && currentRoute.id === 'xingqin' ? 'active' : ''}}"
         data-route-id="xingqin" bindtap="onRouteSelect"
-        style="--route-color: #B8860B;">
+        style="--route-color: #D4A853;">
         <text class="route-name">元妃省亲盛典</text>
         <text class="route-time">约60分钟</text>
       </view>
     </scroll-view>
 
-    <!-- 清除路线 -->
     <view class="route-clear" wx:if="{{currentRoute}}" bindtap="onRouteClear">
       <text>✕</text>
     </view>
