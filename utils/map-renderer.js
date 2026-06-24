@@ -26,7 +26,7 @@ class MapRenderer {
     this.mapImagePath = options.mapImagePath || '/assets/images/map-base.png';
     this.spots = options.spots || [];
     this.canvasWidth = options.canvasWidth || 750;
-    this.canvasHeight = options.canvasHeight || 1334;
+    this.canvasHeight = options.canvasHeight || 1332;  // 与map-base.png尺寸一致: 750x1332
 
     // 变换状态
     this.scale = 1;
