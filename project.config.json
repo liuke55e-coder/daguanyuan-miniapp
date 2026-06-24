@@ -5,12 +5,12 @@
     "include": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
     "preloadBackgroundData": false,
-    "minified": true,
+    "minified": false,
     "newFeature": true,
     "coverView": true,
     "nodeModules": false,
@@ -19,13 +19,14 @@
     "scopeDataCheck": false,
     "uglifyFileName": false,
     "checkInvalidKey": true,
-    "checkSiteMap": true,
+    "checkSiteMap": false,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "lazyCodeLoading": "requiredComponents",
     "useMultiFrameRuntime": true,
     "useApiHook": true,
     "useApiHostProcess": true,
+    "packNpmManually": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -37,5 +38,6 @@
   "libVersion": "3.3.4",
   "appid": "wx0000000000000000",
   "projectname": "daguanyuan-miniapp",
-  "condition": {}
+  "condition": {},
+  "packNpmManually": false
 }
