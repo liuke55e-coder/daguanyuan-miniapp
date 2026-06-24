@@ -1,0 +1,10 @@
+<!-- components/map-canvas/map-canvas.wxml -->
+<canvas
+  type="2d"
+  id="mapCanvas"
+  class="map-canvas"
+  style="width: {{canvasWidth}}rpx; height: {{canvasHeight}}rpx;"
+  bindtouchstart="onTouchStart"
+  bindtouchmove="onTouchMove"
+  bindtouchend="onTouchEnd"
+></canvas>

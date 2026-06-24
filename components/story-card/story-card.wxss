@@ -1,0 +1,199 @@
+/* components/story-card/story-card.wxss */
+
+/* ===== 迷你模式 ===== */
+.mini-mode {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+.mini-spot-icon {
+  font-size: 36rpx;
+  flex-shrink: 0;
+}
+
+.mini-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.mini-name {
+  font-size: var(--font-size-md);
+  color: var(--color-dailan);
+  font-weight: 700;
+}
+
+.mini-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mini-arrow {
+  font-size: 40rpx;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+/* ===== 标准模式 ===== */
+.standard-mode {
+  max-height: 40vh;
+  overflow: hidden;
+}
+
+.card-header {
+  position: relative;
+  height: 240rpx;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card-cover {
+  width: 100%;
+  height: 100%;
+}
+
+.card-header-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+  background: linear-gradient(transparent, rgba(61, 79, 95, 0.7));
+}
+
+.card-spot-name {
+  font-size: var(--font-size-xl);
+  color: var(--color-yuebai);
+  font-weight: 700;
+  display: block;
+}
+
+.card-character-name {
+  font-size: var(--font-size-sm);
+  color: rgba(247, 243, 236, 0.8);
+}
+
+.card-body {
+  padding: var(--spacing-md);
+}
+
+.card-story {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.card-actions {
+  margin-top: var(--spacing-md);
+}
+
+/* ===== 完整模式 ===== */
+.full-mode {
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-scroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.full-cover {
+  width: 100%;
+  height: 360rpx;
+}
+
+.full-body {
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.full-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.full-spot-name {
+  font-size: var(--font-size-xxl);
+  color: var(--color-dailan);
+  font-weight: 700;
+}
+
+.full-description {
+  font-size: var(--font-size-base);
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+/* 场景列表 */
+.scene-list {
+  margin-top: var(--spacing-lg);
+}
+
+.scene-item {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  background: var(--color-dailan-wash);
+  border-radius: var(--radius-md);
+  border-left: 4rpx solid var(--color-zhusha);
+}
+
+.scene-title {
+  font-size: var(--font-size-md);
+  color: var(--color-dailan);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4rpx;
+}
+
+.scene-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.scene-video-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-zhusha);
+  color: var(--color-yuebai);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.scene-duration {
+  opacity: 0.7;
+  font-size: var(--font-size-xs);
+}
+
+/* 音频区 */
+.audio-section {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--color-dailan-wash);
+  border-radius: var(--radius-md);
+}
+
+/* 通用 */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  background: var(--color-dailan);
+  color: var(--color-yuebai);
+}

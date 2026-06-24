@@ -1,0 +1,64 @@
+<!-- components/story-card/story-card.wxml -->
+<view class="story-card {{currentMode}} glass-card" wx:if="{{spot}}">
+
+  <!-- 迷你模式 -->
+  <view class="mini-mode" wx:if="{{currentMode === 'mini'}}" bindtap="onExpand">
+    <view class="mini-spot-icon">📍</view>
+    <view class="mini-content">
+      <text class="mini-name font-title">{{spot.name}}</text>
+      <text class="mini-subtitle">{{spot.story.summary}}</text>
+    </view>
+    <view class="mini-arrow">›</view>
+  </view>
+
+  <!-- 标准模式 -->
+  <view class="standard-mode" wx:if="{{currentMode === 'standard'}}">
+    <view class="card-handle bottom-sheet-handle"></view>
+    <view class="card-header">
+      <image class="card-cover" src="{{spot.photos[0]}}" mode="aspectFill" />
+      <view class="card-header-overlay">
+        <text class="card-spot-name font-title">{{spot.name}}</text>
+        <text class="card-character-name" wx:if="{{spot.character}}">{{spot.character.name}}住所</text>
+      </view>
+    </view>
+    <view class="card-body">
+      <text class="card-story">{{spot.story.summary}}</text>
+      <view class="card-actions">
+        <view class="action-btn btn-dailan" bindtap="onExpand">查看详情</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 完整模式 -->
+  <view class="full-mode" wx:if="{{currentMode === 'full'}}">
+    <view class="card-handle bottom-sheet-handle" bindtap="onCollapse"></view>
+    <scroll-view class="full-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+      <image class="full-cover" src="{{spot.photos[0]}}" mode="aspectFill" />
+      <view class="full-body">
+        <view class="full-title-row">
+          <text class="full-spot-name font-title">{{spot.name}}</text>
+          <text class="full-character-tag tag tag-zhusha" wx:if="{{spot.character}}">{{spot.character.name}}</text>
+        </view>
+        <text class="full-description">{{spot.story.summary}}</text>
+
+        <!-- 经典场景列表 -->
+        <view class="scene-list" wx:if="{{spot.story.scenes}}">
+          <view class="scene-item" wx:for="{{spot.story.scenes}}" wx:key="title" wx:for-item="scene">
+            <text class="scene-title font-title">{{scene.title}}</text>
+            <text class="scene-desc">{{scene.description}}</text>
+            <view class="scene-video-btn" wx:if="{{scene.video}}" bindtap="onPlayVideo" data-url="{{scene.video}}">
+              <text>▶ 观看87版片段</text>
+              <text class="scene-duration">{{scene.duration}}秒</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 语音讲解 -->
+        <view class="audio-section" wx:if="{{spot.audio}}">
+          <audio-player src="{{spot.audio}}" />
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+</view>
