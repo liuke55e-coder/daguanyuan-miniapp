@@ -1,81 +1,129 @@
 /* app.wxss - 全局样式 */
 /* 上海大观园数字孪生导览系统 */
+/* 视觉规范：黛蓝·朱砂·鹅黄·月白 — 中国传统色彩体系 */
 
 /* ===== CSS 变量（设计令牌） ===== */
 page {
-  /* 主色调 - 取自大观园建筑色彩 */
-  --color-primary: #C41E3A;       /* 朱红 */
-  --color-primary-dark: #9B1730;  /* 深朱红 */
-  --color-primary-light: #E84A5F; /* 浅朱红 */
-  --color-secondary: #2E8B57;     /* 琉璃绿 */
-  --color-secondary-light: #45B07C;
-  --color-accent: #B8860B;        /* 金色（元妃线） */
-  --color-accent-purple: #8B2252; /* 紫色（十二金钗线） */
+  /* ── 品牌色（中国传统色系）── */
+  --color-dailan:      #3D4F5F;  /* 黛蓝 — 主色，如远山青黛 */
+  --color-dailan-deep: #2A3845;  /* 黛蓝·深 — 导航栏/强调文字 */
+  --color-dailan-pale: #D6DEE4;  /* 黛蓝·浅 — 淡色背景 */
+  --color-dailan-wash: #EDF1F4;  /* 黛蓝·洗 — 极淡底色 */
 
-  /* 中性色 */
-  --color-bg: #F5F0E8;            /* 宣纸白（页面背景） */
-  --color-bg-card: #FFFFFF;       /* 卡片背景 */
-  --color-text: #3C3C3C;          /* 墨灰（正文） */
-  --color-text-secondary: #888888;/* 次要文字 */
-  --color-text-light: #BBBBBB;    /* 辅助文字 */
-  --color-border: #E8E0D5;        /* 边框 */
-  --color-divider: #F0EBE3;       /* 分割线 */
+  --color-zhusha:      #C04040;  /* 朱砂 — 强调/CTA/图标激活 */
+  --color-zhusha-deep: #9B2C2C;  /* 朱砂·深 — 按压态 */
+  --color-zhusha-pale: #F2D4D4;  /* 朱砂·浅 — 淡色标记 */
 
-  /* 功能色 */
-  --color-success: #52C41A;
-  --color-warning: #FAAD14;
-  --color-error: #FF4D4F;
+  --color-ehuang:      #D4A853;  /* 鹅黄 — 点缀/金色路线 */
+  --color-ehuang-pale: #F5ECD7;  /* 鹅黄·浅 — 暖色背景 */
 
-  /* 尺寸 */
-  --radius-sm: 8rpx;
-  --radius-md: 16rpx;
-  --radius-lg: 24rpx;
+  --color-yuebai:      #F7F3EC;  /* 月白 — 主背景（宣纸色） */
+  --color-yuebai-deep: #EAE3D8;  /* 月白·深 — 卡片/分隔 */
+
+  /* ── 兼容旧变量名（平滑迁移）── */
+  --color-primary:       var(--color-zhusha);
+  --color-primary-dark:  var(--color-zhusha-deep);
+  --color-primary-light: var(--color-zhusha-pale);
+  --color-secondary:     var(--color-dailan);
+  --color-accent:        var(--color-ehuang);
+  --color-accent-purple: #8B5E6B; /* 紫檀色 — 十二金钗线 */
+
+  /* ── 中性色 ── */
+  --color-bg:            var(--color-yuebai);
+  --color-bg-card:       rgba(255, 252, 247, 0.85);  /* 毛玻璃卡片 */
+  --color-text:          #3A3530;  /* 墨色·暖 */
+  --color-text-secondary:#8C8580;  /* 灰褐 */
+  --color-text-light:    #BFB9B3;  /* 浅灰褐 */
+  --color-border:        rgba(61, 79, 95, 0.12);  /* 黛蓝半透明边框 */
+  --color-divider:       rgba(61, 79, 95, 0.06);
+
+  /* ── 功能色 ── */
+  --color-success:       #6B8E6B;  /* 竹青 */
+  --color-warning:       #D4A853;  /* 鹅黄 */
+  --color-error:         #C04040;  /* 朱砂 */
+
+  /* ── 圆角 ── */
+  --radius-sm:  6rpx;
+  --radius-md:  12rpx;
+  --radius-lg:  20rpx;
+  --radius-xl:  28rpx;
   --radius-round: 999rpx;
 
-  /* 阴影 */
-  --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8rpx 32rpx rgba(0, 0, 0, 0.12);
+  /* ── 阴影（暖色调，模拟水墨晕染）── */
+  --shadow-sm: 0 2rpx 12rpx rgba(61, 79, 95, 0.05);
+  --shadow-md: 0 4rpx 20rpx rgba(61, 79, 95, 0.08);
+  --shadow-lg: 0 8rpx 40rpx rgba(61, 79, 95, 0.12);
 
-  /* 字体 */
-  --font-family-title: 'STSong', 'SimSun', 'Songti SC', serif;
-  --font-family-body: -apple-system, BlinkMacSystemFont, 'PingFang SC',
+  /* ── 字体 ── */
+  --font-family-title: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', serif;
+  --font-family-body:  'PingFang SC', -apple-system, BlinkMacSystemFont,
     'Helvetica Neue', 'Microsoft YaHei', sans-serif;
 
-  /* 字号 */
-  --font-size-xs: 20rpx;
-  --font-size-sm: 24rpx;
+  /* ── 字号（模块化比例 1.125）── */
+  --font-size-xs:   22rpx;
+  --font-size-sm:   24rpx;
   --font-size-base: 28rpx;
-  --font-size-md: 32rpx;
-  --font-size-lg: 36rpx;
-  --font-size-xl: 44rpx;
-  --font-size-xxl: 56rpx;
+  --font-size-md:   32rpx;
+  --font-size-lg:   36rpx;
+  --font-size-xl:   44rpx;
+  --font-size-xxl:  56rpx;
+  --font-size-huge: 72rpx;
 
-  /* 间距 */
+  /* ── 间距 ── */
   --spacing-xs: 8rpx;
   --spacing-sm: 16rpx;
   --spacing-md: 24rpx;
   --spacing-lg: 32rpx;
   --spacing-xl: 48rpx;
+  --spacing-xxl: 64rpx;
 
-  /* 全局应用 */
-  background-color: var(--color-bg);
+  /* ── 毛玻璃效果 ── */
+  --glass-bg: rgba(255, 252, 247, 0.72);
+  --glass-blur: 20rpx;
+  --glass-border: rgba(61, 79, 95, 0.08);
+
+  /* ── 全局应用 ── */
+  background-color: var(--color-yuebai);
   color: var(--color-text);
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ===== 宣纸纹理背景 ===== */
+page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* 多层纹理叠加：纤维 + 墨点 + 微噪 */
+  background-image:
+    /* 纸张纤维纹理（重复平铺） */
+    url('/assets/images/ui/paper-texture.png'),
+    /* 水墨晕染渐变（顶部） */
+    radial-gradient(ellipse 80% 30% at 50% 0%,
+      rgba(61, 79, 95, 0.03) 0%,
+      transparent 70%
+    );
+  background-size: 200rpx 200rpx, 100% 100%;
+  background-repeat: repeat, no-repeat;
+  opacity: 0.6;
 }
 
 /* ===== 通用工具类 ===== */
 .text-center { text-align: center; }
 .text-right { text-align: right; }
-.text-primary { color: var(--color-primary); }
+.text-zhusha { color: var(--color-zhusha); }
+.text-dailan { color: var(--color-dailan); }
 .text-secondary { color: var(--color-text-secondary); }
 .text-light { color: var(--color-text-light); }
 
 .font-title { font-family: var(--font-family-title); }
+.font-body { font-family: var(--font-family-body); }
 .font-bold { font-weight: 700; }
+.font-medium { font-weight: 500; }
 
 .flex { display: flex; }
 .flex-center { display: flex; align-items: center; justify-content: center; }
@@ -99,27 +147,54 @@ page {
 .shadow-sm { box-shadow: var(--shadow-sm); }
 .shadow-md { box-shadow: var(--shadow-md); }
 
+/* ===== 毛玻璃容器 ===== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1rpx solid var(--glass-border);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1rpx solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.glass-sheet {
+  background: var(--glass-bg);
+  backdrop-filter: blur(32rpx);
+  -webkit-backdrop-filter: blur(32rpx);
+  border-top: 1rpx solid var(--glass-border);
+}
+
 /* ===== 通用组件样式 ===== */
 
-/* 底部弹窗 (Bottom Sheet) */
+/* 底部弹窗 (Bottom Sheet) — 毛玻璃版本 */
 .bottom-sheet {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--color-bg-card);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  box-shadow: var(--shadow-lg);
-  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  background: rgba(255, 252, 247, 0.88);
+  backdrop-filter: blur(32rpx);
+  -webkit-backdrop-filter: blur(32rpx);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  border-top: 1rpx solid var(--glass-border);
+  box-shadow: 0 -4rpx 32rpx rgba(61, 79, 95, 0.1);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
   z-index: 1000;
 }
 
 .bottom-sheet-handle {
-  width: 60rpx;
-  height: 6rpx;
-  background: var(--color-border);
+  width: 48rpx;
+  height: 5rpx;
+  background: rgba(61, 79, 95, 0.2);
   border-radius: 3rpx;
-  margin: 16rpx auto;
+  margin: 14rpx auto;
 }
 
 /* 通用按钮 */
@@ -129,32 +204,49 @@ page {
   justify-content: center;
   height: 80rpx;
   padding: 0 var(--spacing-lg);
-  border-radius: var(--radius-round);
+  border-radius: var(--radius-md);
   font-size: var(--font-size-md);
   font-weight: 600;
+  font-family: var(--font-family-body);
   border: none;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+  letter-spacing: 0.02em;
 }
 
 .btn-primary {
-  background: var(--color-primary);
-  color: #FFFFFF;
+  background: var(--color-zhusha);
+  color: var(--color-yuebai);
 }
 
 .btn-primary:active {
-  background: var(--color-primary-dark);
+  background: var(--color-zhusha-deep);
+  transform: scale(0.97);
+}
+
+.btn-dailan {
+  background: var(--color-dailan);
+  color: var(--color-yuebai);
+}
+
+.btn-dailan:active {
+  background: var(--color-dailan-deep);
   transform: scale(0.97);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-primary);
-  border: 2rpx solid var(--color-primary);
+  color: var(--color-dailan);
+  border: 1.5rpx solid var(--color-dailan);
+}
+
+.btn-outline:active {
+  background: var(--color-dailan-wash);
+  transform: scale(0.97);
 }
 
 .btn-ghost {
-  background: rgba(196, 30, 58, 0.08);
-  color: var(--color-primary);
+  background: var(--color-dailan-wash);
+  color: var(--color-dailan);
 }
 
 /* 标签 */
@@ -162,26 +254,37 @@ page {
   display: inline-flex;
   align-items: center;
   padding: 4rpx 16rpx;
-  border-radius: var(--radius-round);
+  border-radius: var(--radius-sm);
   font-size: var(--font-size-xs);
   font-weight: 500;
+  letter-spacing: 0.03em;
 }
 
-.tag-primary {
-  background: rgba(196, 30, 58, 0.1);
-  color: var(--color-primary);
+.tag-zhusha {
+  background: var(--color-zhusha-pale);
+  color: var(--color-zhusha);
 }
 
-.tag-secondary {
-  background: rgba(46, 139, 87, 0.1);
-  color: var(--color-secondary);
+.tag-dailan {
+  background: var(--color-dailan-pale);
+  color: var(--color-dailan);
 }
 
-/* 骨架屏 */
+.tag-ehuang {
+  background: var(--color-ehuang-pale);
+  color: var(--color-ehuang);
+}
+
+/* 骨架屏 — 暖色调 */
 .skeleton {
-  background: linear-gradient(90deg, #F0EBE3 25%, #E8E0D5 50%, #F0EBE3 75%);
+  background: linear-gradient(
+    90deg,
+    var(--color-yuebai-deep) 25%,
+    var(--color-yuebai) 50%,
+    var(--color-yuebai-deep) 75%
+  );
   background-size: 200% 100%;
-  animation: skeleton-loading 1.5s ease-in-out infinite;
+  animation: skeleton-loading 1.8s ease-in-out infinite;
 }
 
 @keyframes skeleton-loading {
@@ -193,4 +296,16 @@ page {
 .safe-area-bottom {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ===== 页面过渡动画 ===== */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20rpx);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.35s cubic-bezier(0.32, 0.72, 0, 1);
 }

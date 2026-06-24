@@ -8,16 +8,16 @@
     "pages/profile/profile"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#C41E3A",
+    "navigationBarBackgroundColor": "#3D4F5F",
     "navigationBarTitleText": "大观园·红楼梦",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#F5F0E8"
+    "backgroundColor": "#F7F3EC"
   },
   "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#C41E3A",
-    "backgroundColor": "#FFFFFF",
-    "borderStyle": "black",
+    "color": "#BFB9B3",
+    "selectedColor": "#C04040",
+    "backgroundColor": "#FAF7F2",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
